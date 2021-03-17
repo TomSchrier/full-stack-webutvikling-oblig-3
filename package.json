@@ -1,0 +1,24 @@
+{
+  "name": "full-stack-webutvikling-oblig-3",
+  "version": "1.0.0",
+  "description": "Oblig 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomSchrier/full-stack-webutvikling-oblig-3.git"
+  },
+  "keywords": [],
+  "author": "Tom Schrier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomSchrier/full-stack-webutvikling-oblig-3/issues"
+  },
+  "homepage": "https://github.com/TomSchrier/full-stack-webutvikling-oblig-3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0"
+  }
+}
