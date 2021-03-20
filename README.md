@@ -4,6 +4,11 @@ By Tom Schrier
 ## How to setup Postman and Compass
 
 
+##fml
+
+Tydeligvis kan ikke login ligge i en controller
+
+
 ## Resources, inspiration, and collaborations
 
 **How To Implement API Authentication with JSON Web Tokens and Passport (20.03.2021)**

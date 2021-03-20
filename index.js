@@ -5,15 +5,17 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const port = 5000;
 require('./auth/auth');
-const privateRoute = require('./routes/private-routes');
 const routes = require('./routes/routes');
+const privateRoute = require('./routes/private-routes');
 
 app.use(express.json());
 
 //public routes
 app.use('/', routes);
 
-app.use('/user', passport.authenticate("jwt", { session: false }), privateRoute);
+
+//DENNE
+app.use('/user', passport.authenticate('jwt', { session: false }), privateRoute);
 
 //Database in MongoDB (Compass)
 mongoose.connect('mongodb://localhost:27017/oblig3-users', {

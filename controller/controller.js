@@ -47,7 +47,7 @@ const loginUser = async (req, res, next) => {
                     async (error) => {
                         if (error) return next(error);
                         
-                        const token = jwt.sign({ email: user.email, role: user.role }, 'supersecret');
+                        const token = jwt.sign({ email: user.email, role: user.role }, 'test');
 
                         return res.json({ token });
                     }
@@ -66,6 +66,5 @@ const forgotPassword = async (req, res) => {
 module.exports = {
     createNewUser,
     forgotPassword,
-    getPublicHomePage,
-    loginUser
+    getPublicHomePage
 };

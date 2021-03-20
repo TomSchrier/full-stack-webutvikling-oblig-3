@@ -6,9 +6,7 @@ const getAllUsers = async (req, res) => {
         .catch((error) => { res.status(500).json(error) });*/
 
         res.status(200).json({
-            message: 'You made it to the private route',
-            user: req.user,
-            token: req.query.secret_token
+            message: 'You made it to the private route'
           });
 };
 
