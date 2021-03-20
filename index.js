@@ -13,9 +13,17 @@ app.use(express.json());
 //public routes
 app.use('/', routes);
 
+const authGuard = passport.authenticate('jwt', { session: false })
 
-//DENNE
-app.use('/user', passport.authenticate('jwt', { session: false }), privateRoute);
+const teacherGuard = (req, res, next) => {
+    if (req.user && req.user.role === 'teacher') {
+        next();
+    } else {
+        next(new Error('You are not a teacher'));
+    }
+}
+
+app.use('/user', authGuard, teacherGuard, privateRoute);
 
 //Database in MongoDB (Compass)
 mongoose.connect('mongodb://localhost:27017/oblig3-users', {

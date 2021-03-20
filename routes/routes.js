@@ -23,8 +23,8 @@ router.post(
                     req.login(user, { session: false },
                         async (error) => {
                             if (error) return next(error);
-                            const body = { _id: user._id, email: user.email, role: user.role };
-                            const token = jwt.sign({ user: body }, 'test');
+                            const payload = { email: user.email, role: user.role };
+                            const token = jwt.sign({ user: payload }, 'test');
                             return res.json(token);
                         })
                 } catch (error) {

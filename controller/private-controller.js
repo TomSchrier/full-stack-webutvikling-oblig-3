@@ -1,17 +1,9 @@
 const UserModel = require('../model/model');
 
 const getAllUsers = async (req, res) => {
-    /*await UserModel.find({}, 'name surname status place role')
+    await UserModel.find({}, 'name surname status place role')
         .then(users => { res.status(200).json(users) })
-        .catch((error) => { res.status(500).json(error) });*/
-
-        res.status(200).json({
-            message: 'You made it to the private route'
-          });
-};
-
-const addNewUser = async (req, res) => {
-    res.status(200).json('Hello logged in user. You can ADD a new user here');
+        .catch((error) => { res.status(500).json(error) });
 };
 
 const deleteUser = async (req, res) => {
@@ -26,7 +18,6 @@ const updateUser = async (req, res) => {
 
 module.exports = {
     getAllUsers,
-    addNewUser,
     deleteUser,
     updateUser
 };
