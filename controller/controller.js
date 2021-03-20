@@ -1,7 +1,6 @@
-const LocalStrategy = require('passport-local').Strategy;
 const UserModel = require('../model/model');
-const jwt = require ('jsonwebtoken');
-const passport = require('passport')
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
 
 const getPublicHomePage = async (req, res) => {
     res.status(200).json('Hello visitor. This is the home page.');
@@ -32,13 +31,37 @@ const createNewUser = async (req, res) => {
         .catch((error) => res.status(500).send("Something went wrong during sign up."))
 };
 
-const loginUser = async (req, res) => {
-    res.status(200).json('Hello. This is the login page.');
- };
+const loginUser = async (req, res, next) => {
+    passport.authenticate(
+        'login',
+        async (err, user, info) => {
+            try {
+                if (err || !user) {
+                    const error = new Error('An error occurred.');
+                    return next(info);
+                }
 
- const forgotPassword = async (req, res) => {
+                req.login(
+                    user,
+                    { session: false },
+                    async (error) => {
+                        if (error) return next(error);
+                        
+                        const token = jwt.sign({ email: user.email, role: user.role }, 'supersecret');
+
+                        return res.json({ token });
+                    }
+                );
+            } catch (error) {
+                return next(error);
+            }
+        }
+    )(req, res, next);
+};
+
+const forgotPassword = async (req, res) => {
     res.status(200).json('Hello. This is the reset password page.');
- };
+};
 
 module.exports = {
     createNewUser,

@@ -1,10 +1,15 @@
 const UserModel = require('../model/model');
 
 const getAllUsers = async (req, res) => {
-    await UserModel.find({}, 'name surname status place role')
+    /*await UserModel.find({}, 'name surname status place role')
         .then(users => { res.status(200).json(users) })
-        .catch((error) => { res.status(500).json(error) });
-    //res.status(200).json('Hello logged in user. Here are all the users.');
+        .catch((error) => { res.status(500).json(error) });*/
+
+        res.status(200).json({
+            message: 'You made it to the private route',
+            user: req.user,
+            token: req.query.secret_token
+          });
 };
 
 const addNewUser = async (req, res) => {

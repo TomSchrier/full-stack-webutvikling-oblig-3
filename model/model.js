@@ -55,6 +55,8 @@ UserSchema.pre('save',
 );
 
 //Code by Gerardo
+/*This method checks if the user-entered password is the same as the hased password
+from the dataabse -> if so, return true*/
 UserSchema.methods.isValidPassword = async function (password) {
     const compare = await bcrypt.compare(password, this.password);
 
