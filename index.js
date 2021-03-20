@@ -16,7 +16,7 @@ app.use('/', routes);
 
 //Kanskje to både for studenter og lærere?
 //app.use('/user', passport.authenticate('jwt', { session: false }), privateRoute);
-app.use('/user', passport.authenticate('jwt', { session: false }) ,privateRoute);
+app.use('/user', privateRoute);
 
 //Database in MongoDB (Compass)
 mongoose.connect('mongodb://localhost:27017/oblig3-users', {

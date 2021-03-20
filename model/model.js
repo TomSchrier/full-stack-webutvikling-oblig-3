@@ -44,6 +44,7 @@ const UserSchema = new Schema({
     }
 });
 
+//Code by Gerardo
 UserSchema.pre('save',
     async function (next) {
         const hashedPassword = await bcrypt.hash(this.password, 10);
@@ -53,13 +54,12 @@ UserSchema.pre('save',
     }
 );
 
-/*
+//Code by Gerardo
 UserSchema.methods.isValidPassword = async function (password) {
-    const user = this;
-    const compare = await bcrypt.compare(password, user.password);
+    const compare = await bcrypt.compare(password, this.password);
 
-    return compare;
-}*/
+    return compare; //TRUE / FALSE
+}
 
 const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;
