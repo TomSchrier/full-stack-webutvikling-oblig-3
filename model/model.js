@@ -6,16 +6,19 @@ const UserSchema = new Schema({
     name: {
         type: String,
         required: true,
+        trim: true
     },
     surname: {
         type: String,
         required: true,
+        trim: true
     },
     email: {
         type: String,
         required: true,
         unique: true,
-        lowercase: true
+        lowercase: true,
+        trim: true
     },
     role: {
         type: String,
@@ -58,5 +61,5 @@ UserSchema.methods.isValidPassword = async function (password) {
     return compare;
 }*/
 
-const UserModel = mongoose.model('user', UserSchema);
+const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;

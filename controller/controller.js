@@ -1,4 +1,11 @@
+const LocalStrategy = require('passport-local').Strategy;
 const UserModel = require('../model/model');
+const jwt = require ('jsonwebtoken');
+const passport = require('passport')
+
+const getPublicHomePage = async (req, res) => {
+    res.status(200).json('Hello visitor. This is the home page.');
+};
 
 const createNewUser = async (req, res) => {
     const { name, surname, email, role, password, place, status } = req.body;
@@ -23,6 +30,19 @@ const createNewUser = async (req, res) => {
         .save()
         .then(() => res.status(200).json({ newUser }))
         .catch((error) => res.status(500).send("Something went wrong during sign up."))
-}
+};
 
-module.exports = { createNewUser };
+const loginUser = async (req, res) => {
+    res.status(200).json('Hello. This is the login page.');
+ };
+
+ const forgotPassword = async (req, res) => {
+    res.status(200).json('Hello. This is the reset password page.');
+ };
+
+module.exports = {
+    createNewUser,
+    forgotPassword,
+    getPublicHomePage,
+    loginUser
+};
