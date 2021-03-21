@@ -34,7 +34,7 @@ const createNewUser = async (req, res) => {
         .catch((error) => res.status(500).send("Something went wrong during sign up."))
 };
 
-/*The user must provide an email and password combination that is stored in the database. 
+/*From Gerardo (March 17th) - The user must provide an email and password combination that is stored in the database. 
 When the user tries to log in, the entered password is compared to the hashed one. 
 If the user successfully logs in, they get a JWT token that gives access to other routes. 
 Their role is encoded in their token */

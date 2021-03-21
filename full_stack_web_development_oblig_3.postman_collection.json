@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "978484a0-9cab-4680-a610-c684b07a1782",
+		"name": "Full stack Web development Oblig 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Homepage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				},
+				"description": "This request gets the home page. This page does not need authentication nor authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"surname\": \"\",\r\n    \"email\": \"\",\r\n    \"role\": \"\",\r\n    \"password\": \"\",\r\n    \"place\": \"\",\r\n    \"status\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Samuel\",\r\n    \"surname\": \"Flø\",\r\n    \"email\": \"SamFlo@epost.com\",\r\n    \"role\": \"student\",\r\n    \"password\": \"password\",\r\n    \"place\": \"on-campus\",\r\n    \"status\": \"busy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "POST log in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST log in",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"isefre@epost.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "POST forgot password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/forgotpassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"forgotpassword"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST forgot password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"adrlun@epost.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/forgotpassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"forgotpassword"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GET all users (PRIVATE)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/dashboard?secret_token=<JWT>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dashboard"
+					],
+					"query": [
+						{
+							"key": "secret_token",
+							"value": "<JWT>"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET all users (PRIVATE)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/dashboard?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "secret_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "POST Add new user (PRIVATE)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"\",\n    \"surname\": \"\",\n    \"email\": \"\",\n    \"role\": \"\",\n    \"password\": \"\",\n    \"place\": \"\",\n    \"status\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/add?secret_token=<JWT>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"add"
+					],
+					"query": [
+						{
+							"key": "secret_token",
+							"value": "<JWT>"
+						}
+					]
+				},
+				"description": "A route for a teacher to add a new user "
+			},
+			"response": [
+				{
+					"name": "POST Add new user (PRIVATE)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Julianne\",\n    \"surname\": \"Vold\",\n    \"email\": \"JulVol@epost.com\",\n    \"role\": \"teacher\",\n    \"password\": \"password\",\n    \"place\": \"home-office\",\n    \"status\": \"busy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/add?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"add"
+							],
+							"query": [
+								{
+									"key": "secret_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DELETE a user (PRIVATE)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/delete?secret_token=<JWT>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "secret_token",
+							"value": "<JWT>"
+						}
+					]
+				},
+				"description": "The route for a teacher to delete a user fra the database"
+			},
+			"response": [
+				{
+					"name": "DELETE a user (PRIVATE)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"adrlun@epost.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/delete?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "secret_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "UPDATE a user (PRIVATE)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"\",\r\n    \"role\": \"\",\r\n    \"place\": \"\",\r\n    \"status\": \"\",\r\n    \"name\": \"\",\r\n    \"surname\": \"\",\r\n    \"newEmail\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/update?secret_token=<JWT>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"update"
+					],
+					"query": [
+						{
+							"key": "secret_token",
+							"value": "<JWT>"
+						}
+					]
+				},
+				"description": "The route for a teacher to update a user in the database"
+			},
+			"response": [
+				{
+					"name": "UPDATE a user (PRIVATE)",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"adrlun@epost.com\",\r\n    \"role\": \"teacher\",\r\n    \"place\": \"on-campus\",\r\n    \"status\": \"busy\",\r\n    \"name\": \"Adriano\",\r\n    \"surname\": \"Lundfjell\",\r\n    \"newEmail\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/update?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"update"
+							],
+							"query": [
+								{
+									"key": "secret_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

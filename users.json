@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "60577c13904343314cc40a85"
+  },
+  "role": "student",
+  "place": "home-office",
+  "status": "busy",
+  "name": "Adrian",
+  "surname": "Lundberg",
+  "email": "adrlun@epost.com",
+  "password": "$2b$10$6SSxQHXUlLpXG59J6P638OVGKlESGcemtA6MFr6qMz3IKaODd8AKm",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60577c48904343314cc40a86"
+  },
+  "role": "teacher",
+  "place": "on-campus",
+  "status": "busy",
+  "name": "Iselin",
+  "surname": "Fredriksen",
+  "email": "isefre@epost.com",
+  "password": "$2b$10$LbpxMBG45MUGWf3Lon8lIegferkBDfGaGAQa7vYp5dV7NAhEfE3ym",
+  "__v": 0
+}]
