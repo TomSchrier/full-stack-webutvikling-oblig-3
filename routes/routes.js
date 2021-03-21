@@ -25,7 +25,7 @@ router.post(
                             if (error) return next(error);
                             const payload = { email: user.email, role: user.role };
                             const token = jwt.sign({ user: payload }, 'test');
-                            return res.json(token);
+                            return res.json({"status":"Logged in successfully", "JWT": token});
                         })
                 } catch (error) {
                     return next(error);

@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const port = 5000;
 require('./auth/auth');
+const authTools = require("./auth/auth.js");
 const routes = require('./routes/routes');
 const privateRoute = require('./routes/private-routes');
 
@@ -13,23 +14,18 @@ app.use(express.json());
 //public routes
 app.use('/', routes);
 
-const authGuard = passport.authenticate('jwt', { session: false })
+//For anyone authorized - see all users
+app.use('/overview', authTools.authenticationCheck, privateRoute);
 
-const teacherGuard = (req, res, next) => {
-    if (req.user && req.user.role === 'teacher') {
-        next();
-    } else {
-        next(new Error('You are not a teacher'));
-    }
-}
-
-app.use('/user', authGuard, teacherGuard, privateRoute);
+//Only for teachers - add, delete and update
+app.use('/user', authTools.authenticationCheck, authTools.teacherAuthorizationCheck, privateRoute);
 
 //Database in MongoDB (Compass)
 mongoose.connect('mongodb://localhost:27017/oblig3-users', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 
 const database = mongoose.connection;

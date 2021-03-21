@@ -30,7 +30,7 @@ const createNewUser = async (req, res) => {
         .then(() => res.status(200).json({ newUser }))
         .catch((error) => res.status(500).send("Something went wrong during sign up."))
 };
-
+/*
 const loginUser = async (req, res, next) => {
     passport.authenticate(
         'login',
@@ -57,7 +57,7 @@ const loginUser = async (req, res, next) => {
             }
         }
     )(req, res, next);
-};
+};*/
 
 const forgotPassword = async (req, res) => {
     res.status(200).json('Hello. This is the reset password page.');
