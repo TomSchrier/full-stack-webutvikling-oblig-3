@@ -30,11 +30,11 @@ After following the installation instructions make sure the localhost is set to 
 Optimally import the included `users.json` file. This will import all the users from the database used under development. These are perfect for testing. (The password for these fake users is 'password')
 
 ## KNOW BUGS/ISSUES
-When a teacher updates the information of a user and tries to update multiple fields, the terminal in VS code might return some warnings. This is because the application is trying to respond multiple times.
+When a teacher updates the information of a user and tries to update multiple fields, the terminal in VS Code might return some warnings. This is because the application is trying to respond multiple times.
 
 ## OTHER COMMENTS
 I have decided to implement a controller folder to keep the logic and routes more separated. I think this makes the code clearer and easier to maintain. Further, I have separated "public" routes and their controller and the "private" routes and their controllers. I did this to keep a clear overview of which routes required authentication and which did not.
-To implement role-based auhorization I encoded the user's role in their JWT. To decode it before giving access to a private route I created some middleware that runs before giving access. This function can be found in the auth.js file and is exported to index.js. This keep index.js clean because there are no function declaration in the file.
+To implement role-based auhorization I encoded the user's role in their JWT. To decode it before giving access to a private route I created some middleware that runs before giving access. This function can be found in the `auth.js` file and is exported to `index.js`. This keep index.js clean because there are no function declaration in the file.
 
 ## Further improvements
 For the next time, I would like to improve the code for when a teacher updates a user, and I would like to store the JWT somewhere else than the URL bar. I think displaying it in the URL can be a security problem.
