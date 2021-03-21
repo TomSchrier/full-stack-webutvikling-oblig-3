@@ -33,34 +33,33 @@ const createNewUser = async (req, res) => {
         .then(() => res.status(200).json({ newUser }))
         .catch((error) => res.status(500).send("Something went wrong during sign up."))
 };
-/*
+
+/*The user must provide an email and password combination that is stored in the database. 
+When the user tries to log in, the entered password is compared to the hashed one. 
+If the user successfully logs in, they get a JWT token that gives access to other routes. 
+Their role is encoded in their token */
 const loginUser = async (req, res, next) => {
     passport.authenticate(
         'login',
         async (err, user, info) => {
             try {
                 if (err || !user) {
-                    const error = new Error('An error occurred.');
+                    const error = new Error('An error occurred while logging in');
                     return next(info);
                 }
-
-                req.login(
-                    user,
-                    { session: false },
+                req.login(user, { session: false },
                     async (error) => {
                         if (error) return next(error);
-                        
-                        const token = jwt.sign({ email: user.email, role: user.role }, 'test');
-
-                        return res.json({ token });
-                    }
-                );
+                        const payload = { email: user.email, role: user.role };
+                        const token = jwt.sign({ user: payload }, 'test', { expiresIn: '3h' });
+                        return res.json({ "status": "Logged in successfully", "JWT": token });
+                    })
             } catch (error) {
                 return next(error);
             }
         }
     )(req, res, next);
-};*/
+};
 
 /*The forgot password endpoint is quite plain. The user-provides an email they 
 want to reset the password to, if it isn't in the database, then return an 
@@ -81,5 +80,6 @@ const forgotPassword = async (req, res) => {
 module.exports = {
     createNewUser,
     forgotPassword,
-    getPublicHomePage
+    getPublicHomePage,
+    loginUser
 };
