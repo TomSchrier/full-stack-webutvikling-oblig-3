@@ -24,7 +24,7 @@ router.post(
                         async (error) => {
                             if (error) return next(error);
                             const payload = { email: user.email, role: user.role };
-                            const token = jwt.sign({ user: payload }, 'test');
+                            const token = jwt.sign({ user: payload }, 'test', { expiresIn: '3h' });
                             return res.json({"status":"Logged in successfully", "JWT": token});
                         })
                 } catch (error) {

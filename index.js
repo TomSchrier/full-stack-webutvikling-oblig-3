@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/', routes);
 
 //For anyone authorized - see all users
-app.use('/overview', authTools.authenticationCheck, privateRoute);
+app.use('/dashboard', authTools.authenticationCheck, privateRoute);
 
 //Only for teachers - add, delete and update
 app.use('/user', authTools.authenticationCheck, authTools.teacherAuthorizationCheck, privateRoute);
