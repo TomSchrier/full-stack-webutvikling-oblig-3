@@ -2,7 +2,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const UserModel = require('../model/model');
 
-//From Gerardo
+//From Gerardo (march 17th)
 passport.use(
   'login',
   new localStrategy(
@@ -34,7 +34,7 @@ passport.use(
   )
 );
 
-//From Gerardo
+//From Gerardo (march 17th)
 //Verify the JWT
 const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
@@ -60,11 +60,11 @@ passport.use(
 const authenticationCheck = passport.authenticate('jwt', { session: false })
 
 function teacherAuthorizationCheck(req, res, next) {
-    if (req.user.role !== 'teacher') {
-        return res.status(403).json('The server understood the request, but is refusing to authorize it: only teachers can access this page.');
-    } else {
-        next();
-    }
+  if (req.user.role !== 'teacher') {
+    return res.status(403).json('The server understood the request, but is refusing to authorize it: only teachers can access this page.');
+  } else {
+    next();
+  }
 }
 
 //Export the constant and fuction to use them in index.js

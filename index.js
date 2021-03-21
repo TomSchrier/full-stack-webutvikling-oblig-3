@@ -2,7 +2,6 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const passport = require('passport');
 const port = 5000;
 require('./auth/auth');
 const authTools = require("./auth/auth.js");

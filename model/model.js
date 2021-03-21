@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+/*Schema with Moongoose, some of the fields are trimmed and turned to lowercase. All fields are required.*/
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -23,7 +24,7 @@ const UserSchema = new Schema({
     role: {
         type: String,
         required: true,
-        enum: ['student','teacher'],
+        enum: ['student', 'teacher'],
         default: 'student'
     },
     password: {
@@ -32,19 +33,22 @@ const UserSchema = new Schema({
     },
     place: {
         type: String,
-        enum: ['on-campus','home-office'],
+        enum: ['on-campus', 'home-office'],
         default: 'on-campus',
         required: true
     },
     status: {
         type: String,
-        enum: ['available','busy'],
+        enum: ['available', 'busy'],
         default: 'available',
         required: true
     }
 });
 
 //Code by Gerardo
+/*This pre-method runs right before a new user is saved. 
+Its purpose is to hash a password. By hashing the password, 
+it is never stored in plain text in the database.*/
 UserSchema.pre('save',
     async function (next) {
         const hashedPassword = await bcrypt.hash(this.password, 10);
