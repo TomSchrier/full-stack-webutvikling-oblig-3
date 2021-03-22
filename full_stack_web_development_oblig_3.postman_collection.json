@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "978484a0-9cab-4680-a610-c684b07a1782",
 		"name": "Full stack Web development Oblig 3",
+		"description": "This is the collection of requests for the obligatory assignment 3 in IDG2100 - Full-stack Web development",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -21,7 +22,7 @@
 						""
 					]
 				},
-				"description": "This request gets the home page. This page does not need authentication nor authorization"
+				"description": "This request gets the home page. This page does not need authentication nor authorization."
 			},
 			"response": []
 		},
@@ -49,7 +50,8 @@
 					"path": [
 						"signup"
 					]
-				}
+				},
+				"description": "This is the sign-up page. Any unauthenticated user can sign up for the service. They have to provide their name, surname, email, role, password, place, and status.\nRETURNS: Success massage and the user that was created."
 			},
 			"response": [
 				{
@@ -109,7 +111,8 @@
 					"path": [
 						"login"
 					]
-				}
+				},
+				"description": "This is the login page. A user can provide their email and password. If the credential mats the one's stores in the database, the user gets logged in.\nRETURNS: a JWT"
 			},
 			"response": [
 				{
@@ -146,6 +149,74 @@
 			]
 		},
 		{
+			"name": "GET log out",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/dashboard/logout?secret_token=<JWT>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dashboard",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "secret_token",
+							"value": "<JWT>"
+						}
+					]
+				},
+				"description": "A fake route to pretend the user has logged out. It can only be accessed by logged-in users."
+			},
+			"response": [
+				{
+					"name": "GET log out",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/dashboard/logout?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dashboard",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "secret_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
 			"name": "POST forgot password",
 			"request": {
 				"method": "POST",
@@ -169,7 +240,8 @@
 					"path": [
 						"forgotpassword"
 					]
-				}
+				},
+				"description": "This too is a relatively fake page. A user can provide their email and the server responds with a message that there has been sent an email with instructions to reset the password associated with that email."
 			},
 			"response": [
 				{
@@ -226,7 +298,8 @@
 							"value": "<JWT>"
 						}
 					]
-				}
+				},
+				"description": "This is the dashboard. An authenticated user can visit this page. The server returns all the users in the database but does not show all their information."
 			},
 			"response": [
 				{
@@ -274,7 +347,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/user/add?secret_token=<JWT>",
+					"raw": "http://localhost:5000/user/?secret_token=<JWT>",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -282,7 +355,7 @@
 					"port": "5000",
 					"path": [
 						"user",
-						"add"
+						""
 					],
 					"query": [
 						{
@@ -291,7 +364,7 @@
 						}
 					]
 				},
-				"description": "A route for a teacher to add a new user "
+				"description": "On this page, a user with the correct authorization (a teacher) can add a new user to the database."
 			},
 			"response": [
 				{
@@ -309,7 +382,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/user/add?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"raw": "http://localhost:5000/user/?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -317,7 +390,7 @@
 							"port": "5000",
 							"path": [
 								"user",
-								"add"
+								""
 							],
 							"query": [
 								{
@@ -349,7 +422,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/user/delete?secret_token=<JWT>",
+					"raw": "http://localhost:5000/user/?secret_token=<JWT>",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -357,7 +430,7 @@
 					"port": "5000",
 					"path": [
 						"user",
-						"delete"
+						""
 					],
 					"query": [
 						{
@@ -366,7 +439,7 @@
 						}
 					]
 				},
-				"description": "The route for a teacher to delete a user fra the database"
+				"description": "On this page, a user with the correct authorization (a teacher) can delete a user from the database."
 			},
 			"response": [
 				{
@@ -384,7 +457,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/user/delete?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"raw": "http://localhost:5000/user/?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -392,7 +465,7 @@
 							"port": "5000",
 							"path": [
 								"user",
-								"delete"
+								""
 							],
 							"query": [
 								{
@@ -424,7 +497,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/user/update?secret_token=<JWT>",
+					"raw": "http://localhost:5000/user/?secret_token=<JWT>",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -432,7 +505,7 @@
 					"port": "5000",
 					"path": [
 						"user",
-						"update"
+						""
 					],
 					"query": [
 						{
@@ -441,7 +514,7 @@
 						}
 					]
 				},
-				"description": "The route for a teacher to update a user in the database"
+				"description": "On this page, a user with the correct authorization (a teacher) can update the information associated with a user from the database."
 			},
 			"response": [
 				{
@@ -459,7 +532,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/user/update?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
+							"raw": "http://localhost:5000/user/?secret_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWRybHVuQGVwb3N0LmNvbSIsInJvbGUiOiJzdHVkZW50In0sImlhdCI6MTYxNjM0Njc2MiwiZXhwIjoxNjE2MzU3NTYyfQ.oAvsmBbEZtao4-8cAedbcT6elJImGqutvOpIN8ZGDIo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -467,7 +540,7 @@
 							"port": "5000",
 							"path": [
 								"user",
-								"update"
+								""
 							],
 							"query": [
 								{

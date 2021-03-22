@@ -12,10 +12,15 @@ router.get('/logout', privateController.logOutUser);
 
 
 //PREFIX : /user/ ––– Only for teachers
-router.post('/add', Controller.createNewUser);
+/*These URLs used to contain 'add', 'delete', and 'update', 
+but I removed it after reading "REST Resource Naming Guide" 
+(https://restfulapi.net/resource-naming/). Note that the email 
+used to identify a user is still located in the body 
+– these could be moved to the param/URL */
+router.post('/', Controller.createNewUser);
 
-router.delete('/delete', privateController.deleteUser);
+router.delete('/', privateController.deleteUser);
 
-router.patch('/update', privateController.updateUser);
+router.patch('/', privateController.updateUser);
 
 module.exports = router;
