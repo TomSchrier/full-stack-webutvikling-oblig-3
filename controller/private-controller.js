@@ -97,8 +97,15 @@ const updateUser = async (req, res) => {
     }
 };
 
+//Here to have all the endpoint from oblig 2.
+const logOutUser = async (req, res) => {
+    /* Here we would remove the JWT from the client... for now, its just fake*/
+    res.status(200).json(`You are now logged out.`)
+};
+
 module.exports = {
     getAllUsers,
     deleteUser,
+    logOutUser,
     updateUser
 };
