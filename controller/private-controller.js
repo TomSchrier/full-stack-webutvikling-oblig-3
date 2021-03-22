@@ -22,7 +22,10 @@ const deleteUser = async (req, res) => {
 Update a user by their email. Known issue: When updating multiple fields, 
 the server tries to return multiple statuses causing some messages in the terminal. 
 (The database is still updated) Suggested solution: in the front end, make it possible 
-to only update one field at a time (one form per input field). */
+to only update one field at a time (one form per input field). 
+
+I wanted to use something like shown here: https://dev.to/rubiin/mongoose-dynamic-update-hack-21ad, but
+I didnt want to copy the code, and didnt manage to create my own as I had trouble with objects*/
 const updateUser = async (req, res) => {
     const filter = { email: req.body.email };
     let alreadyInDatabase = await UserModel.findOne({ email: req.body.email });
